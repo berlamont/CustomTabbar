@@ -169,7 +169,7 @@ namespace CustomTabbar
                     if (Device.RuntimePlatform == Device.iOS)
                         transX = -80; //Good for iOS
 
-                    if (iconFilter.TranslationX != transX)
+                    if ((int)iconFilter.TranslationX != transX)
                         await iconFilter.TranslateTo(transX, 0, 100);
                 }
             }

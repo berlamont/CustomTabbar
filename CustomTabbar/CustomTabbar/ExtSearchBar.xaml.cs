@@ -161,22 +161,22 @@ namespace CustomTabbar
                 var sbar = sender as Xamarin.Forms.SearchBar;
                 if (string.IsNullOrWhiteSpace(sbar?.Text))
                 {
-                    iconFilter.TranslateTo(0, 0);
+                    await iconFilter.TranslateTo(0, 0);
                 }
                 else
                 {
-                    int transX = -25; //Good for Android
+                    var transX = -25; //Good for Android
                     if (Device.RuntimePlatform == Device.iOS)
                         transX = -80; //Good for iOS
 
                     if (iconFilter.TranslationX != transX)
-                        iconFilter.TranslateTo(transX, 0, 100);
+                        await iconFilter.TranslateTo(transX, 0, 100);
                 }
             }
 
             if (TextChangedCommand != null)
             {
-                if (cts != null) cts.Cancel();
+                cts?.Cancel();
                 cts = new CancellationTokenSource();
                 var ctoken = cts.Token;
 

@@ -15,31 +15,10 @@ namespace CustomTabbar
         public TabBarPage()
         {
             InitializeComponent();
-            BindingContext = this;
+            BindingContext = new SearchBarPageViewModel(this.Navigation);
 
-            SelectedTab = 0;
         }
 
-        private int _selectedTab;
-        public int SelectedTab
-        {
-            get { return _selectedTab; }
-            set
-            {
-                if (_selectedTab != value)
-                {
-                    _selectedTab = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        public ICommand TabItemTappedCommand => new Command<string>(TabItemTappedAction);
-        void TabItemTappedAction(string tabIndex)
-        {
-            int newSelection = 0;
-            int.TryParse(tabIndex, out newSelection);
-            SelectedTab = newSelection;
-        }
+       
     }
 }

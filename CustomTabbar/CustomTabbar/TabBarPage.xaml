@@ -20,111 +20,120 @@
 			</Style>
 		</ResourceDictionary>
 	</ContentPage.Resources>
+	<StackLayout>
+		<customTabbar:ExtSearchBar FilterCommand="{Binding FilterTappedCommand}"
+		                           HasFilterIcon="True"
+		                           Placeholder="Search for an item"
+		                           SearchCommand="{Binding SearchCommand}"
+		                           Text="{Binding SearchText}"
+		                           TextChangedCommand="{Binding SearchCommand}"
+		                           TextChangedDelay="550" />
 
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="*" />
-		</Grid.RowDefinitions>
-		<customTabbar:TabBar SelectedIndex="{Binding SelectedTab}">
-			<customTabbar:TabBar.Items>
-				<Label Style="{StaticResource HeaderLabelStyle}" Text="Header 1">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding TabItemTappedCommand}"
-						                      CommandParameter="0"
-						                      NumberOfTapsRequired="1" />
-					</Label.GestureRecognizers>
-				</Label>
-				<Label Style="{StaticResource HeaderLabelStyle}" Text="Header 2">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding TabItemTappedCommand}"
-						                      CommandParameter="1"
-						                      NumberOfTapsRequired="1" />
-					</Label.GestureRecognizers>
-				</Label>
-				<Label Style="{StaticResource HeaderLabelStyle}" Text="Header 3">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding TabItemTappedCommand}"
-						                      CommandParameter="2"
-						                      NumberOfTapsRequired="1" />
-					</Label.GestureRecognizers>
-				</Label>
-				<Label Style="{StaticResource HeaderLabelStyle}" Text="Header 4">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding TabItemTappedCommand}"
-						                      CommandParameter="3"
-						                      NumberOfTapsRequired="1" />
-					</Label.GestureRecognizers>
-				</Label>
-			</customTabbar:TabBar.Items>
-		</customTabbar:TabBar>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<customTabbar:TabBar SelectedIndex="{Binding SelectedTab}">
+				<customTabbar:TabBar.Items>
+					<Label Style="{StaticResource HeaderLabelStyle}" Text="Header 1">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding TabItemTappedCommand}"
+							                      CommandParameter="0"
+							                      NumberOfTapsRequired="1" />
+						</Label.GestureRecognizers>
+					</Label>
+					<Label Style="{StaticResource HeaderLabelStyle}" Text="Header 2">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding TabItemTappedCommand}"
+							                      CommandParameter="1"
+							                      NumberOfTapsRequired="1" />
+						</Label.GestureRecognizers>
+					</Label>
+					<Label Style="{StaticResource HeaderLabelStyle}" Text="Header 3">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding TabItemTappedCommand}"
+							                      CommandParameter="2"
+							                      NumberOfTapsRequired="1" />
+						</Label.GestureRecognizers>
+					</Label>
+					<Label Style="{StaticResource HeaderLabelStyle}" Text="Header 4">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding TabItemTappedCommand}"
+							                      CommandParameter="3"
+							                      NumberOfTapsRequired="1" />
+						</Label.GestureRecognizers>
+					</Label>
+				</customTabbar:TabBar.Items>
+			</customTabbar:TabBar>
 
-		<!--  PANEL 1  -->
-		<ContentView Grid.Row="1" IsVisible="False">
-			<StackLayout.Triggers>
-				<DataTrigger Binding="{Binding SelectedTab}"
-				             TargetType="ContentView"
-				             Value="0">
-					<Setter Property="IsVisible" Value="True" />
-				</DataTrigger>
-			</StackLayout.Triggers>
+			<!--  PANEL 1  -->
+			<ContentView Grid.Row="1" IsVisible="False">
+				<StackLayout.Triggers>
+					<DataTrigger Binding="{Binding SelectedTab}"
+					             TargetType="ContentView"
+					             Value="0">
+						<Setter Property="IsVisible" Value="True" />
+					</DataTrigger>
+				</StackLayout.Triggers>
 
-			<Label FontSize="Large"
-			       HorizontalOptions="Center"
-			       Text="Panel 1"
-			       VerticalOptions="Center" />
+				<Label FontSize="Large"
+				       HorizontalOptions="Center"
+				       Text="Panel 1"
+				       VerticalOptions="Center" />
 
-		</ContentView>
+			</ContentView>
 
-		<!--  PANEL 2  -->
-		<ContentView Grid.Row="1" IsVisible="False">
-			<StackLayout.Triggers>
-				<DataTrigger Binding="{Binding SelectedTab}"
-				             TargetType="ContentView"
-				             Value="1">
-					<Setter Property="IsVisible" Value="True" />
-				</DataTrigger>
-			</StackLayout.Triggers>
+			<!--  PANEL 2  -->
+			<ContentView Grid.Row="1" IsVisible="False">
+				<StackLayout.Triggers>
+					<DataTrigger Binding="{Binding SelectedTab}"
+					             TargetType="ContentView"
+					             Value="1">
+						<Setter Property="IsVisible" Value="True" />
+					</DataTrigger>
+				</StackLayout.Triggers>
 
-			<Label FontSize="Large"
-			       HorizontalOptions="Center"
-			       Text="Panel 2"
-			       VerticalOptions="Center" />
+				<Label FontSize="Large"
+				       HorizontalOptions="Center"
+				       Text="Panel 2"
+				       VerticalOptions="Center" />
 
-		</ContentView>
+			</ContentView>
 
-		<!--  PANEL 3  -->
-		<ContentView Grid.Row="1" IsVisible="False">
-			<StackLayout.Triggers>
-				<DataTrigger Binding="{Binding SelectedTab}"
-				             TargetType="ContentView"
-				             Value="2">
-					<Setter Property="IsVisible" Value="True" />
-				</DataTrigger>
-			</StackLayout.Triggers>
+			<!--  PANEL 3  -->
+			<ContentView Grid.Row="1" IsVisible="False">
+				<StackLayout.Triggers>
+					<DataTrigger Binding="{Binding SelectedTab}"
+					             TargetType="ContentView"
+					             Value="2">
+						<Setter Property="IsVisible" Value="True" />
+					</DataTrigger>
+				</StackLayout.Triggers>
 
-			<Label FontSize="Large"
-			       HorizontalOptions="Center"
-			       Text="Panel 3"
-			       VerticalOptions="Center" />
+				<Label FontSize="Large"
+				       HorizontalOptions="Center"
+				       Text="Panel 3"
+				       VerticalOptions="Center" />
 
-		</ContentView>
+			</ContentView>
 
-		<!--  PANEL 4  -->
-		<ContentView Grid.Row="1" IsVisible="False">
-			<StackLayout.Triggers>
-				<DataTrigger Binding="{Binding SelectedTab}"
-				             TargetType="ContentView"
-				             Value="3">
-					<Setter Property="IsVisible" Value="True" />
-				</DataTrigger>
-			</StackLayout.Triggers>
+			<!--  PANEL 4  -->
+			<ContentView Grid.Row="1" IsVisible="False">
+				<StackLayout.Triggers>
+					<DataTrigger Binding="{Binding SelectedTab}"
+					             TargetType="ContentView"
+					             Value="3">
+						<Setter Property="IsVisible" Value="True" />
+					</DataTrigger>
+				</StackLayout.Triggers>
 
-			<Label FontSize="Large"
-			       HorizontalOptions="Center"
-			       Text="Panel 4"
-			       VerticalOptions="Center" />
+				<Label FontSize="Large"
+				       HorizontalOptions="Center"
+				       Text="Panel 4"
+				       VerticalOptions="Center" />
 
-		</ContentView>
-	</Grid>
+			</ContentView>
+		</Grid>
+	</StackLayout>
 </ContentPage>

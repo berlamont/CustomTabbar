@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Name="Root"
+             x:Class="CustomTabbar.ExtSearchBar"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50" />
+		</Grid.RowDefinitions>
+
+		<!--
+			WidthRequest="1" ==> Xamarin bug ==> SearchBar inside a Grid, needs WidthRequest set (workaround)
+			https://bugzilla.xamarin.com/show_bug.cgi?id=59595
+		-->
+		<SearchBar x:Name="searchBar"
+		           WidthRequest="1"
+		           Placeholder="{Binding Source={x:Reference Root}, Path=Placeholder}"
+		           SearchCommand="{Binding Source={x:Reference Root}, Path=SearchCommand}"
+		           Text="{Binding Source={x:Reference Root}, Path=Text}"
+		           TextChanged="SearchBar_TextChanged" />
+
+		<Image x:Name="iconFilter"
+		       WidthRequest="25"
+		       Margin="0,0,20,0"
+		       Aspect="AspectFit"
+		       HorizontalOptions="End"
+		       IsVisible="{Binding Source={x:Reference Root}, Path=HasFilterIcon}"
+		       Source="icon.png"
+		       VerticalOptions="Fill">
+			<Image.GestureRecognizers>
+				<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="IconFilter_Tapped" />
+			</Image.GestureRecognizers>
+		</Image>
+	</Grid>
+</ContentView>

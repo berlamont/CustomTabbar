@@ -13,7 +13,7 @@ namespace CustomTabbar
         {
             InitializeComponent();
 
-            MainPage = new CustomTabbar.MainPage();
+            MainPage = new CustomTabbar.TabBarPage();
         }
 
         protected override void OnStart()
